@@ -1,9 +1,10 @@
-import { useState } from 'react'
 import './App.css'
+import React from 'react'
+import { useState } from 'react'
 import EditArea from './components/EditArea'
 import EditableCV from './components/EditableCV'
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -22,4 +23,4 @@ function App() {
 }
  
 
-export default App
+
