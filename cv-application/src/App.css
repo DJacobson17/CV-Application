@@ -1,0 +1,21 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+section {
+  border: 2px solid #ccc;
+}
