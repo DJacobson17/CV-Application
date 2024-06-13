@@ -1,21 +1,20 @@
-import React from 'react'
 
-function EditableCV() {
-  return (
-    <>
-        <GeneralInfo {...person} />
-        <Experience {...person} />
-        <Education {...person} />
-    </>
-  )
-}
+import React, { useState } from 'react'
+import '../styles/editableCV.css'
+import App from '../App'
+import EditArea from './EditArea'
 
-const person = { name: 'John Doe', email: 'johndoe@gmail.com', phone: '555-555-5555', jobs: [{ id: 1, title: 'Software Engineer', company: 'Google', dates: '2018-2021', responsibilities: ['Worked on the Google search engine.', 'Managed a team of 10.'] }, { id: 2, title: 'Software Engineer', company: 'Facebook', dates: '2015-2018', responsibilities: ['Worked on the Facebook social network.', 'Managed a team of 5 developers.']}], education: [{ id: 1, degree: 'BS Computer Science', school: 'MIT', dates: '2011-2015', location: 'Cambridge, MA' }, { id: 2, degree: 'MS Computer Science', school: 'Stanford', dates: '2015-2017', location: 'Palo Alto, CA' }]}
+
+export default function EditableCV ({
+  person,
+  updateSection
+}) {
 
 function GeneralInfo(person) {
   return (
     <>
       <section className="general-info">
+        <EditButton />
         <h2>{person.name}</h2>
         <p>{person.email}</p>
         <p>{person.phone}</p>
@@ -29,6 +28,7 @@ function Experience(person) {
   return (  
     <>
       <section className="experience">
+        <EditButton />
         <h2>Work History</h2>
         <ul>
           {person.jobs.map(job =>
@@ -53,6 +53,7 @@ function Education(person) {
   return (
     <>
       <section className="education">
+        <EditButton />
         <h2>Education</h2>
         <ul>
           {person.education.map(edu =>
@@ -69,4 +70,26 @@ function Education(person) {
   )
 }
 
-export default EditableCV;
+
+
+function EditButton() {
+  return (
+    <button className="push" onClick={(e) => updateSection(e.target.parentNode.parentNode.classList[0])}>
+      <span className='shadow'></span>
+      <span className="edge"></span>
+      <span className='front'>
+      Edit
+      </span>
+    </button>
+  )
+}
+  return (
+    <>
+        <GeneralInfo {...person}/>
+        <Experience {...person} />
+        <Education {...person} />
+    </>
+  )
+}
+
+
